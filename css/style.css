@@ -1344,3 +1344,12 @@ a{
     padding: 0px;
   }
 }
+
+.navbar {
+  transition: none !important;
+  border-radius: inherit !important;
+  margin-top: initial !important;
+  background-color: transparent !important;
+  padding: 40px 0 !important;
+  width: auto !important;
+}
