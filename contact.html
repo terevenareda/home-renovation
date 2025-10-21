@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3799642663.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <title>Home Renovation</title>
+</head>
+<body>
+<div class="landingpage page-transition">
+  <div class="navbar">
+    <a href="index.html" class="navlogo">Home Renovation</a>
+    <div class="navlinkwrap">
+        <a href="index.html" class="navlink selectedlink">Home</a>
+        <a href="about.html" class="navlink">About</a>
+        <a href="services.html" class="navlink">Services</a>
+        <a href="contact.html" class="navlink">Contact us</a>
+        <a href="blog.html" class="navlink">Blog</a>
+    </div>
+  </div>
+<section id="contact">
+  <h3 class="started-boldtext">Contact Us</h3>
+  <div class="contact-container">
+    
+    <!-- Left Column: Contact Form -->
+    <form id="contactForm" class="contact-form">
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Your Name" required>
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Your Email" required>
+      </div>
+      <div class="form-group">
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+
+    <div class="contact-links">
+      <a href="" target="_blank">
+        <i class="fa-solid fa-envelope"></i> Gmail
+      </a>
+      <a href="" target="_blank">
+        <i class="fa-brands fa-facebook"></i> Facebook
+      </a>
+      <a href="" target="_blank">
+        <i class="fa-brands fa-instagram"></i> Instagram
+      </a>
+      <a href="" target="_blank">
+        <i class="fa-solid fa-phone"></i> phone number 1
+      </a>
+      <a href="" target="_blank">
+        <i class="fa-solid fa-phone"></i> phone number 2
+      </a>
+    </div>
+  </div>
+
+</section>
+
+  <div class="footer">
+    <div class="footer-main">
+      Etiam et id tincidunt faucibus mollis a sociis pretium fermentum quis magna faucibus lacus.
+    </div>
+    <div class="footer-navigate">
+      <div class="nav">
+        <h5>Company</h5>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="about.html">About Us</a></p>
+        <p><a href="services.html">Services</a></p>
+        <p><a href="blogs.html">Blogs</a></p>
+      </div>
+      <div class="nav">
+        <h5>Contact</h5>
+        <p><a href="#">Facebook</a></p>
+        <p><a href="#">Instagram</a></p>
+        <p><a href="#">Twitter</a></p>
+        <p><a href="#">Email</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="footer2">
+    <div></div>
+    <p>© 2025 Terevena Reda. All rights reserved.</p>
+  </div>
+
+</div>
+<script>
+  AOS.init({
+    duration: 800,
+    easing: "ease-in-out",
+    once: false,
+    offset: 100
+  });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const transitionEl = document.querySelector(".page-transition");
+  const nav = document.querySelector(".navItems");
+  const navLinks = nav ? Array.from(nav.querySelectorAll(".nav-link")) : [];
+  let current = normalizePath(location.href);
+  let redirected = false;
+
+  // ---- Helpers ----
+  function normalizePath(href) {
+    try {
+      const url = new URL(href, location.href);
+      let name = url.pathname.split("/").pop() || "index.html";
+      if (!name.includes(".")) name += ".html";
+      return name;
+    } catch {
+      return href;
+    }
+  }
+
+  function setActiveLink(name) {
+    navLinks.forEach(link => {
+      link.classList.toggle("active", normalizePath(link.href) === name);
+    });
+  }
+
+  function navigate(url) {
+    if (redirected) return;
+    redirected = true;
+    window.location.href = url;
+  }
+
+  function startTransition(url) {
+    if (!transitionEl) {
+      navigate(url);
+      return;
+    }
+
+    setTimeout(() => transitionEl.classList.remove("fade-in"), 10);
+
+    transitionEl.addEventListener("transitionend", () => navigate(url), { once: true });
+    setTimeout(() => navigate(url), 800); // fallback
+  }
+
+  // ---- Initial setup ----
+  if (transitionEl && !transitionEl.classList.contains("fade-in")) {
+    requestAnimationFrame(() => transitionEl.classList.add("fade-in"));
+  }
+  if (nav) setActiveLink(current);
+
+  navLinks.forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    if (redirected) return;
+
+    navLinks.forEach(l => l.classList.remove("active"));
+    link.classList.add("active");
+
+    startTransition(link.href);
+  });
+});
+
+});
+
+</script>
+
+
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="./js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
