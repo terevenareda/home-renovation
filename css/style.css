@@ -1356,6 +1356,10 @@ a{
   .services{
     padding: 0px;
   }
+
+  #about-page{
+    padding: 0px;
+  }
 }
 
 .navbar {
