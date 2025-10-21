@@ -830,7 +830,7 @@ body {
 
 
 #contact {
-  margin-top: 100px;
+  margin: 100px 0px;
   width: 100%;
   text-align: start;
   display: flex;
@@ -1305,6 +1305,15 @@ a{
   transform: translateY(-5px); 
 }
 
+.hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
 @media (min-width:350px) and (max-width: 600px) {
   .navlinkwrap {
     display: none;            
@@ -1327,6 +1336,10 @@ a{
 
   .navlinkwrap a:hover {
     background-color: initial;
+  }
+  
+   .hamburger {
+    display: block;
   }
 
   .exp-image-wrapper {
