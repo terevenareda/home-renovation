@@ -37,8 +37,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 40px 0;
-  width: 100%;
+  padding: 40px 0 !important;
+  width: 100% !important;
+  transition: none !important;
 }
 .landingpage .box {
     margin-top: 80px;
