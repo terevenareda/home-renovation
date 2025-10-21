@@ -19,24 +19,7 @@ $(document).ready(function () {
     productItems.eq(currentIndex).addClass("active");
   });
 
-  // ----- Ripple Effect -----
-  $("[ripple]").on("click", function (e) {
-    var rippleDiv = $('<div class="ripple" />'),
-        rippleSize = 60,
-        rippleOffset = $(this).offset(),
-        rippleY = e.pageY - rippleOffset.top,
-        rippleX = e.pageX - rippleOffset.left;
 
-    rippleDiv
-      .css({
-        top: rippleY - rippleSize / 2,
-        left: rippleX - rippleSize / 2,
-        background: $(this).attr("ripple-color")
-      })
-      .appendTo($(this));
-
-    setTimeout(() => rippleDiv.remove(), 1900);
-  });
 
   // ----- Contact Form (EmailJS) -----
   const form = document.getElementById('contactForm');
